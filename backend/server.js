@@ -2,12 +2,13 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
+import path from "path"; // <-- qo'shildi
 
 dotenv.config();
 
 const app = express();
 app.use(cors());
-app.use(express.json({ limit: "50mb" })); // katta rasm uchun
+app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
 mongoose
@@ -17,6 +18,7 @@ mongoose
 
 import Post from "./models/Post.js";
 
+// POSTS ROUTES
 app.post("/posts", async (req, res) => {
   try {
     const newPost = new Post({
@@ -24,7 +26,7 @@ app.post("/posts", async (req, res) => {
       displayName: req.body.displayName,
       photoURL: req.body.photoURL,
       text: req.body.text,
-      images: req.body.images, // Base64 rasm
+      images: req.body.images,
     });
 
     await newPost.save();
@@ -33,15 +35,25 @@ app.post("/posts", async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+
 app.get("/posts", async (req, res) => {
   try {
-    const posts = await Post.find().sort({ createdAt: -1 }); // so‘nggi postlar birinchi
+    const posts = await Post.find().sort({ createdAt: -1 });
     res.json(posts);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
 
+// 1️⃣ React build papkasini statik qilib ko'rsatish
+app.use(express.static(path.join(path.resolve(), "client", "build"))); // client/build sizning React build papkangiz
+
+// 2️⃣ Har qanday route index.html ga yo'naltirish
+app.get("*", (req, res) => {
+  res.sendFile(path.join(path.resolve(), "client", "build", "index.html"));
+});
+
+// SERVERNI ISHGA TUSHIRISH
 app.listen(process.env.PORT, () =>
   console.log(`Server ${process.env.PORT} portda ishlamoqda`)
 );
