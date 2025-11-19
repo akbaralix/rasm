@@ -18,7 +18,7 @@ function Profil() {
 
   const fetchUserPosts = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/posts");
+      const res = await axios.get("https://rasm-5ano.onrender.com/posts");
       // Foydalanuvchining postlarini filter qilish
       const posts = res.data.filter((p) => p.userId === user.uid);
       setUserPosts(posts);

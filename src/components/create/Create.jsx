@@ -40,16 +40,13 @@ function Create() {
     }
 
     try {
-      await axios.post(
-        "https://us-central1-rasm-ee482.cloudfunctions.net/posts",
-        {
-          userId: user.uid,
-          displayName: user.displayName,
-          photoURL: user.photoURL,
-          text: coption,
-          images: selectedImages,
-        }
-      );
+      await axios.post("https://rasm-5ano.onrender.com/posts", {
+        userId: user.uid,
+        displayName: user.displayName,
+        photoURL: user.photoURL,
+        text: coption,
+        images: selectedImages, // Base64 rasmlar
+      });
 
       alert("Post yaratildi!");
       setCoption("");
