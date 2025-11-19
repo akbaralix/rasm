@@ -3,6 +3,7 @@ import { signInWithPopup } from "firebase/auth";
 import { auth, provider } from "../firebase";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { FaGoogle } from "react-icons/fa";
 import "./style/login.css";
 
 function Login() {
@@ -43,10 +44,9 @@ function Login() {
       <h2>Akkuntga kirish</h2>
 
       <button onClick={handleGoogleLogin}>
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
-          alt=""
-        />
+        <span>
+          <FaGoogle />
+        </span>
         <p>Google bilan kirish</p>
       </button>
 
