@@ -52,7 +52,7 @@ function Post() {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await axios.get("https://rasm-5ano.onrender.com/posts");
+      const res = await axios.get("https://rasm-1.onrender.com/posts");
       setPosts(res.data);
     };
 

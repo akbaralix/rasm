@@ -8,7 +8,7 @@
 }
 
 .post-card {
-  background: #404040;
+  background: #050404;
   border-radius: 14px;
   overflow: hidden;
 }
@@ -46,9 +46,9 @@
 
 .carousel-image {
   width: 100%;
-  height: auto; /* container balandligini avtomatik qiladi */
-  max-height: 80vh; /* ekran balandligiga moslash uchun */
-  object-fit: contain; /* rasmni kesmasdan, to‘liq ko‘rsatadi */
+  height: auto;
+  max-height: 80vh;
+  object-fit: contain;
   flex-shrink: 0;
   display: block;
   margin: 0 auto;

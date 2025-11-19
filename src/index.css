@@ -4,6 +4,7 @@
   box-sizing: border-box;
   scrollbar-width: thin;
   -webkit-tap-highlight-color: transparent;
+  user-select: none;
 }
 body {
   background-color: #000000;
