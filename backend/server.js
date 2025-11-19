@@ -2,7 +2,6 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
-import path from "path"; // <-- qo'shildi
 
 dotenv.config();
 
@@ -14,24 +13,20 @@ app.use(express.urlencoded({ limit: "50mb", extended: true }));
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB ulandi"))
-  .catch((err) => console.log(err));
+  .catch((err) => console.log("MongoDB xato:", err));
 
+// Models
 import Post from "./models/Post.js";
+import User from "./models/User.js";
 
-// POSTS ROUTES
+// ROUTES
 app.post("/posts", async (req, res) => {
   try {
-    const newPost = new Post({
-      userId: req.body.userId,
-      displayName: req.body.displayName,
-      photoURL: req.body.photoURL,
-      text: req.body.text,
-      images: req.body.images,
-    });
-
+    const newPost = new Post(req.body);
     await newPost.save();
     res.json({ msg: "Post yaratildi" });
   } catch (err) {
+    console.error(err);
     res.status(500).json({ error: err.message });
   }
 });
@@ -41,16 +36,21 @@ app.get("/posts", async (req, res) => {
     const posts = await Post.find().sort({ createdAt: -1 });
     res.json(posts);
   } catch (err) {
+    console.error(err);
     res.status(500).json({ error: err.message });
   }
 });
 
-app.use(express.static(path.join(path.resolve(), "client", "dist")));
-app.get(/.*/, (req, res) => {
-  res.sendFile(path.join(path.resolve(), "client", "dist", "index.html"));
+app.post("/users", async (req, res) => {
+  try {
+    const newUser = new User(req.body);
+    await newUser.save();
+    res.json({ msg: "User saqlandi" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: err.message });
+  }
 });
 
-// SERVERNI ISHGA TUSHIRISH
-app.listen(process.env.PORT, () =>
-  console.log(`Server ${process.env.PORT} portda ishlamoqda`)
-);
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server ${PORT} portda ishlamoqda`));
