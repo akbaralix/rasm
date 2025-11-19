@@ -1,0 +1,24 @@
+.home {
+  max-width: 600px;
+  margin: auto;
+  padding: 10px;
+  color: #fff;
+}
+
+.user-profil {
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.user-profil-img img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgb(215, 215, 215);
+}
+
+.profil-info h3 {
+  margin: 0;
+  font-size: 16px;
+}

@@ -1,0 +1,59 @@
+.profil {
+  max-width: 600px;
+  margin: auto;
+  padding: 10px;
+  color: #fff;
+}
+
+.profil-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.user-profil-img img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profil-info h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.logout-btn {
+  margin-left: auto;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #ff3b30;
+  color: #fff;
+  cursor: pointer;
+}
+
+.user-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Carousel */
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+.carousel-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}

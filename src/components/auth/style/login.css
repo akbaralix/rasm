@@ -1,0 +1,34 @@
+.login {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: relative;
+  background-color: rgb(44, 43, 43);
+  padding: 20px;
+  max-width: 500px;
+  width: 100%;
+  border-radius: 20px;
+}
+.login h2 {
+  margin-bottom: 30px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+}
+.login button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 40px;
+  padding: 1.6rem;
+  font-size: 20px;
+  font-weight: 600;
+  width: 100%;
+  border-radius: 15px;
+  border: 1px solid darkgray;
+  cursor: pointer;
+}
+.login .faq-gogle {
+  margin-top: 20px;
+  justify-content: start;
+}

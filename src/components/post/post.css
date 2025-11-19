@@ -1,0 +1,99 @@
+.post-container {
+  max-width: 550px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 60px;
+}
+
+.post-card {
+  background: #404040;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+/* Header */
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+}
+
+.user-avatar {
+  width: 42px;
+  height: 42px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* --- CAROUSEL --- */
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  background: #000;
+}
+
+.carousel-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.carousel-image {
+  width: 100%;
+  height: auto; /* container balandligini avtomatik qiladi */
+  max-height: 80vh; /* ekran balandligiga moslash uchun */
+  object-fit: contain; /* rasmni kesmasdan, to‘liq ko‘rsatadi */
+  flex-shrink: 0;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Dots */
+.carousel-dots {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  background: #aaa;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+
+.dot.active {
+  background: white;
+  width: 10px;
+  height: 10px;
+  transform: scale(1.2);
+}
+
+/* Text */
+.post-text {
+  padding: 12px;
+  font-size: 18px;
+  max-height: 50px;
+  overflow: auto;
+  scrollbar-width: none;
+  margin-top: 10px;
+  color: #ffffff;
+}
+
+/* Mobile */
+@media (max-width: 500px) {
+  .carousel-image {
+    height: 100%;
+  }
+}
