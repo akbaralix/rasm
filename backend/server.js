@@ -45,12 +45,9 @@ app.get("/posts", async (req, res) => {
   }
 });
 
-// STATIC BUILD
-app.use(express.static(path.join(path.resolve(), "client", "build")));
-
-// HAR QANDAY ROUTE
+app.use(express.static(path.join(path.resolve(), "client", "dist")));
 app.get(/.*/, (req, res) => {
-  res.sendFile(path.join(path.resolve(), "client", "build", "index.html"));
+  res.sendFile(path.join(path.resolve(), "client", "dist", "index.html"));
 });
 
 // SERVERNI ISHGA TUSHIRISH
