@@ -25,7 +25,7 @@ function Login() {
 
         // Foydalanuvchini backendga saqlash
         try {
-          await axios.post("https://rasm-1.onrender.com/users", userData);
+          await axios.post("https://rasm-gm3r.onrender.com/users", userData);
         } catch (err) {
           console.log("User saqlashda xatolik:", err);
         }

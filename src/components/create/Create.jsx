@@ -40,7 +40,7 @@ function Create() {
     }
 
     try {
-      await axios.post("https://rasm-1.onrender.com/posts", {
+      await axios.post("https://rasm-gm3r.onrender.com/posts", {
         userId: user.uid,
         displayName: user.displayName,
         photoURL: user.photoURL,

@@ -18,7 +18,7 @@ function Profil() {
 
   const fetchUserPosts = async () => {
     try {
-      const res = await axios.get("https://rasm-1.onrender.com/posts");
+      const res = await axios.get("https://rasm-gm3r.onrender.com/posts");
       // Foydalanuvchining postlarini filter qilish
       const posts = res.data.filter((p) => p.userId === user.uid);
       setUserPosts(posts);
