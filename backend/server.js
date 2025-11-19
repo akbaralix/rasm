@@ -45,11 +45,11 @@ app.get("/posts", async (req, res) => {
   }
 });
 
-// 1️⃣ React build papkasini statik qilib ko'rsatish
-app.use(express.static(path.join(path.resolve(), "client", "build"))); // client/build sizning React build papkangiz
+// STATIC BUILD
+app.use(express.static(path.join(path.resolve(), "client", "build")));
 
-// 2️⃣ Har qanday route index.html ga yo'naltirish
-app.get("*", (req, res) => {
+// HAR QANDAY ROUTE
+app.get(/.*/, (req, res) => {
   res.sendFile(path.join(path.resolve(), "client", "build", "index.html"));
 });
 
